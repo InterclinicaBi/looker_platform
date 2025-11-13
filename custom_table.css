@@ -1,0 +1,47 @@
+/* custom_table.css */
+
+/* Estilo base de la tabla */
+.reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Encabezado */
+.reportTable thead {
+  background-color: #0077b6;
+  color: #fff;
+}
+
+.reportTable th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+/* Cuerpo */
+.reportTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Filas alternadas */
+.reportTable tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Hover */
+.reportTable tbody tr:hover {
+  background-color: #e3f2fd;
+  transition: 0.2s;
+}
+
+/* Última fila sin borde */
+.reportTable tbody tr:last-child td {
+  border-bottom: none;
+}
