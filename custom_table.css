@@ -78,53 +78,41 @@
   font-weight: bold !important;
 }
 
-/* --- NUEVO: COLUMNAS COLAPSABLES --- */
+/* --- NUEVO: COLUMNAS COLAPSABLES (NO NUMÉRICAS) --- */
 
-/* Botón visual para colapsar/expandir */
-.collapse-toggle {
-  cursor: pointer;
-  display: inline-block;
-  background-color: #0077b6;
-  color: white;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 12px;
-  margin-left: 6px;
-  transition: background-color 0.2s ease;
-}
-.collapse-toggle:hover {
-  background-color: #005f8c;
+/* Marcar columnas no numéricas */
+th.nonNumeric,
+td.nonNumeric {
+  transition: all 0.3s ease;
 }
 
-/* Ocultar columnas colapsadas */
-.collapsed-column {
-  display: none;
+/* Cuando la tabla tiene clase .collapsed, ocultar columnas no numéricas */
+.reportTable.collapsed th.nonNumeric,
+.reportTable.collapsed td.nonNumeric {
+  width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* Animación opcional (suaviza la transición visual) */
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Suaviza la transición de ocultar/mostrar */
+.reportTable th.nonNumeric,
+.reportTable td.nonNumeric {
+  transition: all 0.3s ease, opacity 0.3s ease;
 }
 
-.fadeOut {
-  animation: fadeOut 0.3s forwards;
-}
-.fadeIn {
-  animation: fadeIn 0.3s forwards;
-}
-
-/* Ajuste visual para mostrar icono ▲▼ */
-th.collapsible::after {
-  content: ' ▼';
-  font-size: 10px;
+/* Indicador visual opcional (encabezados colapsables) */
+th.nonNumeric::after {
+  content: '⯈';
   color: #fff;
-  cursor: pointer;
+  font-size: 11px;
+  margin-left: 4px;
+  opacity: 0.7;
 }
-th.collapsible.collapsed::after {
-  content: ' ►';
+.reportTable.collapsed th.nonNumeric::after {
+  content: '⯆';
+  opacity: 0.7;
 }
